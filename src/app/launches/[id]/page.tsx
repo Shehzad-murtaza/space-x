@@ -47,13 +47,13 @@ export default function LaunchDetails() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center">
         <div className="text-center">
           <div className="relative w-20 h-20 mx-auto mb-6">
-            <div className="absolute inset-0 border-t-4 border-blue-500 rounded-full animate-spin"></div>
-            <Rocket className="absolute inset-0 m-auto text-blue-500 w-10 h-10 animate-pulse" />
+            <div className="absolute inset-0 border-t-4 border-blue-600 rounded-full animate-spin"></div>
+            <Rocket className="absolute inset-0 m-auto text-blue-600 w-10 h-10 animate-pulse" />
           </div>
-          <p className="text-xl text-gray-800 font-light">Loading missions...</p>
+          <p className="text-xl text-gray-300 font-light">Loading missions...</p>
         </div>
       </div>
     );
@@ -61,7 +61,7 @@ export default function LaunchDetails() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center">
         <div className="text-center space-y-4">
           <XCircle className="w-16 h-16 text-red-500 mx-auto" />
           <p className="text-xl text-red-600">{error}</p>
@@ -76,10 +76,10 @@ export default function LaunchDetails() {
 
   if (!launch) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 flex items-center justify-center">
         <div className="text-center space-y-4">
-          <XCircle className="w-16 h-16 text-gray-400 mx-auto" />
-          <p className="text-xl text-gray-700">Launch not found</p>
+          <XCircle className="w-16 h-16 text-gray-500 mx-auto" />
+          <p className="text-xl text-gray-400">Launch not found</p>
           <Link href="/" className="text-blue-500 hover:text-blue-600 inline-flex items-center">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to launches
@@ -92,20 +92,20 @@ export default function LaunchDetails() {
   const rocket = launch.rocket ?? { rocket_id: 'N/A', rocket_name: 'N/A', rocket_type: 'N/A' };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-16 px-4">
       <div className="container mx-auto max-w-4xl">
         <Link
           href="/"
-          className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors mb-8"
+          className="inline-flex items-center text-gray-300 hover:text-blue-600 transition-colors mb-8"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Back to launches
         </Link>
 
-        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="p-8 border-b border-gray-100">
+        <div className="bg-gray-800 rounded-2xl shadow-xl border border-gray-700 overflow-hidden">
+          <div className="p-8 border-b border-gray-700">
             <div className="flex items-center justify-between mb-6">
-              <h1 className="text-3xl font-bold text-gray-900">{launch.mission_name}</h1>
+              <h1 className="text-3xl font-bold text-white">{launch.mission_name}</h1>
               <div
                 className={`px-4 py-2 rounded-full ${
                   launch.launch_success
@@ -128,31 +128,31 @@ export default function LaunchDetails() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
-                <div className="flex items-center text-gray-600">
+                <div className="flex items-center text-gray-400">
                   <Calendar className="w-5 h-5 mr-3" />
                   <div>
                     <p className="text-sm text-gray-500">Launch Date</p>
-                    <p className="text-gray-900">{launch.launch_date_local}</p>
+                    <p className="text-white">{launch.launch_date_local}</p>
                   </div>
                 </div>
-                <div className="flex items-center text-gray-600">
+                <div className="flex items-center text-gray-400">
                   <Rocket className="w-5 h-5 mr-3" />
                   <div>
                     <p className="text-sm text-gray-500">Flight Number</p>
-                    <p className="text-gray-900">#{launch.flight_number}</p>
+                    <p className="text-white">#{launch.flight_number}</p>
                   </div>
                 </div>
               </div>
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-gray-900">Rocket Details</h3>
+                <h3 className="text-lg font-semibold text-white">Rocket Details</h3>
                 <div className="space-y-2">
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     <span className="text-gray-500">Name:</span> {rocket.rocket_name}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     <span className="text-gray-500">Type:</span> {rocket.rocket_type}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-gray-400">
                     <span className="text-gray-500">ID:</span> {rocket.rocket_id}
                   </p>
                 </div>
